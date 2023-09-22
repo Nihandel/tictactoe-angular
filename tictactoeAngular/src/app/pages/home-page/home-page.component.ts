@@ -20,11 +20,8 @@ export class HomePageComponent implements OnInit {
   tableState$:Observable<Array<TTTButtonState|undefined|null>>;
   constructor(private match: MatchService) {
     this.buttons = new Array(9);
-    this.tableState$ = match.$table.pipe(tap((value) => {
-       console.log(value) 
-      }));
+    this.tableState$ = match.$table;
     this.match.matchStatus$.subscribe((value)=>{
-      let message:string;
       if(value){
         alert(value.toString());
       }
