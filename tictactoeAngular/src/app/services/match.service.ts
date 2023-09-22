@@ -30,7 +30,7 @@ export class MatchService {
     if (!!result) {
       // winner
       this._matchStatus.next(result == TTTButtonState.X ? TTTMatchResult.WinX : TTTMatchResult.WinO);
-    } else if (this._moveLeft <= 0) {
+    } else if (--this._moveLeft <= 0) {
       // draw
       this._matchStatus.next(TTTMatchResult.Draw);
     }
