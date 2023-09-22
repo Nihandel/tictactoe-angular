@@ -15,8 +15,8 @@
             <button type="button"
                 style="width: 100%; height: 100%; background-color: transparent; border: transparent; display: flex; justify-content: center; align-content: center;"
                 (click)="onButtonClick(indx,currentPlayer)">
-                <mat-icon [fontIcon]="'close'" *ngIf="item=='X'" style="width: 100%; height: 100%; font-size: 10em; padding: auto;"></mat-icon>
-                <mat-icon [fontIcon]="'radio_button_unchecked'" *ngIf="item=='O'" style="width: 100%; height: 100%; font-size: 10em; padding: auto;"></mat-icon>
+                <mat-icon [fontIcon]="'close'" *ngIf="item=='X'" class="icon"></mat-icon>
+                <mat-icon [fontIcon]="'radio_button_unchecked'" *ngIf="item=='O'" class="icon"></mat-icon>
             </button>
         </mat-card>
 

@@ -16,11 +16,12 @@ import {MatCardModule} from '@angular/material/card';
   imports:[CommonModule,MatButtonModule,MatListModule,MatIconModule,MatCardModule],
 })
 export class HomePageComponent implements OnInit {
-  headerContent: String = "header";
+  headerContent: String;
   buttons: Array<boolean|undefined>;
   currentPlayer:TTTButtonState = TTTButtonState.X;
   tableState$:Observable<Array<TTTButtonState|undefined|null>>;
   constructor(private match: MatchService) {
+    this.headerContent=`Turn of: ${this.currentPlayer}`; 
     this.buttons = new Array(9);
     this.tableState$ = match.$table;
     this.match.matchStatus$.subscribe((value)=>{
@@ -42,5 +43,6 @@ export class HomePageComponent implements OnInit {
   }
   private togglePlayer(){
     this.currentPlayer = this.currentPlayer == TTTButtonState.X ? TTTButtonState.O : TTTButtonState.X;
+    this.headerContent=`Turn of: ${this.currentPlayer}`; 
   }
 }
