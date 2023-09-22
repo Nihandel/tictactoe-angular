@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import { MatchService } from 'src/app/services/match.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,4 +12,8 @@ import {MatListModule} from '@angular/material/list';
 })
 export class HomePageComponent {
   headerContent: String = "header";
+
+  constructor(private match: MatchService) {
+    
+  }
 }
