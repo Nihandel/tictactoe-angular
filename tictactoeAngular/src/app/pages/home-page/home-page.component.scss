@@ -1,0 +1,23 @@
+:host{
+    position: relative;
+    // height: 100%;
+    // width: 100%;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: stretch;
+}
+.grid-container{   
+    height: 100%;
+    display: grid;
+    .grid{
+        justify-self: stretch;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 5px;
+        // height: 100%;
+        // width: 100%;
+    }
+}
