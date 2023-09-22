@@ -9,7 +9,15 @@
 <div class="grid-container">
 
     <div class="grid">
-        <input type="button" mat-button *ngFor="let item of (tableState$|async),let indx=index" [value]="item"
-            (click)="onButtonClick(indx,currentPlayer)" />
+        <mat-card *ngFor="let item of (tableState$|async),let indx=index" style="display: flex; justify-content: center; align-content: center;">
+            <button type="button" style="width: 100%; height: 100%; background-color: transparent; border: transparent;"
+                (click)="onButtonClick(indx,currentPlayer)">
+                <mat-icon [fontIcon]="'close'" *ngIf="item=='X'"></mat-icon>
+                <mat-icon [fontIcon]="'radio_button_unchecked'" *ngIf="item=='O'"></mat-icon>
+            </button>
+        </mat-card>
+
+
+        <!-- <mat-icon></mat-icon> -->
     </div>
 </div>

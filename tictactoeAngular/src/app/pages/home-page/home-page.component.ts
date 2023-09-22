@@ -5,13 +5,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import { Observable, tap } from 'rxjs';
 import { MatchService, TTTButtonState } from 'src/app/services/match.service';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
   standalone: true,
-  imports:[CommonModule,MatButtonModule,MatListModule],
+  imports:[CommonModule,MatButtonModule,MatListModule,MatIconModule,MatCardModule],
 })
 export class HomePageComponent implements OnInit {
   headerContent: String = "header";
@@ -34,9 +36,9 @@ export class HomePageComponent implements OnInit {
     this.match.clearTable();
   }
   onButtonClick(index:number,player:TTTButtonState):void{
-    console.log(`clicked on ${index} for player ${player}`);
-    this.match.makeMove(index,player);
-    this.togglePlayer();
+    if(this.match.makeMove(index,player)){
+      this.togglePlayer();
+    }
   }
   private togglePlayer(){
     this.currentPlayer = this.currentPlayer == TTTButtonState.X ? TTTButtonState.O : TTTButtonState.X;

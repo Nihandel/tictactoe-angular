@@ -22,7 +22,8 @@ export class MatchService {
   constructor() {
     this.clearTable();
   }
-  makeMove(index: number, player: TTTButtonState) {
+  makeMove(index: number, player: TTTButtonState):boolean {
+    if(this.table[index]) return false;
     var temp = this.table;
     temp[index] = player;
     this.table = temp;
@@ -34,6 +35,7 @@ export class MatchService {
       // draw
       this._matchStatus.next(TTTMatchResult.Draw);
     }
+    return true
   }
   clearTable() {
     this.table = new Array<TTTButtonState | undefined | null>(9).fill(null);
